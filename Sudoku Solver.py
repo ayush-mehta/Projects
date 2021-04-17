@@ -142,7 +142,6 @@ def sudoku_solve(x, y):
 # Support variables for the Game loop
 run = True
 box_select = 0
-val = 0
 global delay
 delay = 0
 
@@ -209,15 +208,14 @@ while run:
                 sudoku = grid
                 if sudoku_solve(0, 0) == False:
                     text5 = font2.render("NO SOLUTION EXISTS FOR THE ENTERED SUDOKU", 1, (0, 0, 0))
-                    screen.blit(text5, (20, 750))
+                    screen.blit(text5, (20, 780))
             if event.key == pygame.K_LSHIFT or event.key == pygame.K_RSHIFT:
                 delay = 1
                 if sudoku_solve(0, 0) == False:
                     text5 = font2.render("NO SOLUTION EXISTS FOR THE ENTERED SUDOKU", 1, (0, 0, 0))
-                    screen.blit(text5, (20, 750))
+                    screen.blit(text5, (20, 780))
             if event.key == pygame.K_p:
                 box_select = 0
-                val = 0
                 delay = 0
                 grid = [[0] * n2 for _ in range(n2)]
             if event.key == pygame.K_a:
@@ -257,10 +255,12 @@ while run:
     text2 = font2.render("ENTER AND DELETE VALUES AND CUSTOMIZE YOUR SUDOKU", 1, (0, 0, 0))
     text3 = font2.render("PRESS ENTER TO DIRECTLY DISPLAY THE ANSWER", 1, (0, 0, 0))
     text4 = font2.render("PRESS SHIFT TO VIEW THE BACKTRACKING ALGORITHM APPLIED", 1, (0, 0, 0))
+    text6 = font2.render("PRESS Q TO QUIT", 1, (0, 0, 0))
     screen.blit(text1, (20, 630))        
     screen.blit(text2, (20, 660))
     screen.blit(text3, (20, 690))        
     screen.blit(text4, (20, 720))
+    screen.blit(text6, (20, 750))
 
     pygame.display.update()
 pygame.quit()
